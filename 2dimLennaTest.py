@@ -8,8 +8,11 @@ def normalize(target):
     return max
 
 #2次スプライン係数
-h = [0, 0.125, 0.375, 0.375, 0.125, 0]
+h = [0, 0.125, 0.375, 0.375, 0.125, 0] 
 g = [0, 0, -0.5, 0.5, 0, 0]
+
+h = [i * np.sqrt(2) for i in h]
+g = [i * np.sqrt(2) for i in g]
 model = DyDWT(h, g, cenH=2, cenG=2)
 
 im = np.array(Image.open('resource/LENNA.bmp')) #入力画像
